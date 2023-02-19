@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Em Flash Card</string>
     <string name="des_repons_button">Rendre visible la repons</string>
+    <string name="question1">Quel es la capital d\'Haiti</string>
+    <string name="repons1">Port-au-Prince</string>
+    <string name="repons2">Cayes</string>
+    <string name="repons3">Cap-Haitien</string>
 </resources>
