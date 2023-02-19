@@ -15,8 +15,9 @@
         android:layout_weight="4"
         android:background="#5CDCE1A5"
         android:gravity="center"
+        android:text="Quel es la capital d'Haiti"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         tools:text="Question?" />
 
@@ -24,7 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/l1">
 
         <TextView
             android:id="@+id/repons_1"
@@ -36,6 +38,7 @@
             android:background="#D6D2D2"
             android:gravity="center"
             android:padding="16dp"
+            android:text="Port-au-Prince"
             android:textSize="20sp"
             tools:text="Answer1" />
 
@@ -50,6 +53,7 @@
             android:backgroundTint="#D6D2D2"
             android:gravity="center"
             android:padding="16dp"
+            android:text="Cayes"
             android:textSize="20sp"
             tools:text="Answer2" />
 
@@ -63,6 +67,7 @@
             android:background="#D6D2D2"
             android:gravity="center"
             android:padding="16dp"
+            android:text="Cap-Haitien"
             android:textSize="20sp"
             tools:text="Answer3" />
     </LinearLayout>
@@ -71,7 +76,7 @@
 
 
     <Button
-        android:id="@+id/view_repons"
+        android:id="@+id/but1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
