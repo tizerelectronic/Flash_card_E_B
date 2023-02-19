@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Em Flash Card</string>
+    <string name="des_repons_button">Rendre visible la repons</string>
 </resources>
