@@ -28,7 +28,6 @@
             android:background="#219ebc"
             android:gravity="center"
             android:padding="70dp"
-            android:text="@string/repons1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="34sp"
             android:textStyle="bold" />

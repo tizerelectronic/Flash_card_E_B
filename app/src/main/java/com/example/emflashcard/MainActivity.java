@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE =
+            "com.example.android.emflashcard.extra.MESSAGE";
     Button r1;
     Button r2;
     Button r3;
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void repons_true(View view) {
         Intent intent = new Intent(this, reponse.class);
+        String message = r1.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
 //        l1.setVisibility(View.GONE);
 //        bt1.setVisibility(View.GONE);
