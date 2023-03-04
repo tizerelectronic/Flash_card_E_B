@@ -4,6 +4,7 @@
 
 # 
 <img src="https://i.imgur.com/p2sBhEJ.gif" width=200><br>
+<img src="emflashcard.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
