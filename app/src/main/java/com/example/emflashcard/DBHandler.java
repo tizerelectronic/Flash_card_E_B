@@ -23,17 +23,17 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable is for our id column.
     private static final String ID_COL = "id";
 
-    // below variable is for our course name column
-    private static final String NAME_COL = "question";
+    // below variable is for our question column
+    private static final String QUEST_COL = "question";
 
-    // below variable id for our course duration column.
-    private static final String DURATION_COL = "reponsT";
+    // below variable id for our True respons column.
+    private static final String REPONST_COL = "reponsT";
 
-    // below variable for our course description column.
-    private static final String DESCRIPTION_COL = "reponsf1";
+    // below variable for our false responce column.
+    private static final String REPONSF1_COL = "reponsf1";
 
-    // below variable is for our course tracks column.
-    private static final String TRACKS_COL = "reponsf2";
+    // below variable is for our false responce column.
+    private static final String REPONSF2_COL = "reponsf2";
 
     // creating a constructor for our database handler.
     public DBHandler(Context context) {
@@ -49,17 +49,17 @@ public class DBHandler extends SQLiteOpenHelper {
         // along with their data types.
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + NAME_COL + " TEXT,"
-                + DURATION_COL + " TEXT,"
-                + DESCRIPTION_COL + " TEXT,"
-                + TRACKS_COL + " TEXT)";
+                + QUEST_COL + " TEXT,"
+                + REPONST_COL + " TEXT,"
+                + REPONSF1_COL + " TEXT,"
+                + REPONSF2_COL + " TEXT)";
 
         // at last we are calling a exec sql
         // method to execute above sql query
         db.execSQL(query);
     }
 
-    // this method is use to add new course to our sqlite database.
+    // this method is use to add new question to our sqlite database.
     public void addNewQuestion(String question, String reponsv, String reponsf1, String reponsf2) {
 
         // on below line we are creating a variable for
@@ -73,10 +73,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are passing all values
         // along with its key and value pair.
-        values.put(NAME_COL, question);
-        values.put(DURATION_COL, reponsv);
-        values.put(DESCRIPTION_COL, reponsf1);
-        values.put(TRACKS_COL, reponsf2);
+        values.put(QUEST_COL, question);
+        values.put(REPONST_COL, reponsv);
+        values.put(REPONSF1_COL, reponsf1);
+        values.put(REPONSF2_COL, reponsf2);
 
         // after adding all values we are passing
         // content values to our table.
@@ -127,7 +127,5 @@ public class DBHandler extends SQLiteOpenHelper {
         cursorQuestion.close();
         return questionModalArrayList;
     }
-
-
 
     }

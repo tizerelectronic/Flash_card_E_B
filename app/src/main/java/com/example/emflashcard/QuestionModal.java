@@ -49,6 +49,7 @@ public class QuestionModal {
         this.id = id;
     }
 
+    //  Creating Constructor
     public QuestionModal(String question, String reponsv, String reponsf1, String reponsf2) {
         this.question = question;
         this.reponsv = reponsv;

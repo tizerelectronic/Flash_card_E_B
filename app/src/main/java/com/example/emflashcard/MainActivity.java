@@ -53,15 +53,12 @@ public class MainActivity extends AppCompatActivity {
         questionModalArrayList = dbHandler.readQuestion() ;
 
 
-
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for (QuestionModal questionModal : questionModalArrayList){
 
-
                 }
-
             }
         });
 
@@ -113,17 +110,9 @@ public class MainActivity extends AppCompatActivity {
 
     });
 
-
-
-
-
     public void NewQuestion(View view) {
         Intent intent2 = new Intent(this, question.class);
         resultLauncher.launch(intent2);
     }
-
-
-
-
 }
 
