@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     String reponsv;
     String reponsf1;
     String reponsf2;
+    DBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         r3 = findViewById(R.id.repons_3);
         q1 = findViewById(R.id.question_1);
         l1 = findViewById(R.id.l1);
+        dbHandler = new DBHandler(MainActivity.this);
+
     }
 
     public void repons_true(View view) {
@@ -76,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                     r1.setText(reponsv);
                     r2.setText(reponsf1);
                     r3.setText(reponsf2);
+                    dbHandler.addNewCourse(editTxtQ, reponsv, reponsf1, reponsf2);
+                    Toast.makeText(MainActivity.this, "Question ajouter", Toast.LENGTH_SHORT).show();
+
+                    }
                         Log.i("MainActivity", "string1: $string1");
                         Log.i("MainActivity", "string2: $string2");
 
@@ -83,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }});
+    });
+
 
 
 

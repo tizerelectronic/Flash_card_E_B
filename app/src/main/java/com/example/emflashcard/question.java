@@ -22,6 +22,7 @@ public class question extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent data = new Intent(question.this, MainActivity.class);
                 String q1 = ((EditText) findViewById(R.id.editTextQ)).getText().toString();
                 String r1 = ((EditText) findViewById(R.id.editTextR)).getText().toString();
