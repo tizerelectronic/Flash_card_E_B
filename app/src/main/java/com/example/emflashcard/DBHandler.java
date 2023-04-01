@@ -60,7 +60,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // this method is use to add new course to our sqlite database.
-    public void addNewCourse(String courseName, String courseDuration, String courseDescription, String courseTracks) {
+    public void addNewQuestion(String question, String reponsv, String reponsf1, String reponsf2) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -73,10 +73,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are passing all values
         // along with its key and value pair.
-        values.put(NAME_COL, courseName);
-        values.put(DURATION_COL, courseDuration);
-        values.put(DESCRIPTION_COL, courseDescription);
-        values.put(TRACKS_COL, courseTracks);
+        values.put(NAME_COL, question);
+        values.put(DURATION_COL, reponsv);
+        values.put(DESCRIPTION_COL, reponsf1);
+        values.put(TRACKS_COL, reponsf2);
 
         // after adding all values we are passing
         // content values to our table.

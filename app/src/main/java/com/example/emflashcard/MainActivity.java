@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
@@ -31,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     String reponsv;
     String reponsf1;
     String reponsf2;
+    ImageView nextBtn;
     DBHandler dbHandler;
+    private ArrayList<QuestionModal> questionModalArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +47,23 @@ public class MainActivity extends AppCompatActivity {
         r3 = findViewById(R.id.repons_3);
         q1 = findViewById(R.id.question_1);
         l1 = findViewById(R.id.l1);
+        nextBtn = (ImageView) findViewById(R.id.imgNext);
         dbHandler = new DBHandler(MainActivity.this);
+        questionModalArrayList = new ArrayList<>();
+        questionModalArrayList = dbHandler.readQuestion() ;
+
+
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (QuestionModal questionModal : questionModalArrayList){
+
+
+                }
+
+            }
+        });
 
     }
 
@@ -79,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     r1.setText(reponsv);
                     r2.setText(reponsf1);
                     r3.setText(reponsf2);
-                    dbHandler.addNewCourse(editTxtQ, reponsv, reponsf1, reponsf2);
+                    dbHandler.addNewQuestion(editTxtQ, reponsv, reponsf1, reponsf2);
                     Toast.makeText(MainActivity.this, "Question ajouter", Toast.LENGTH_SHORT).show();
 
                     }
@@ -100,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent2 = new Intent(this, question.class);
         resultLauncher.launch(intent2);
     }
+
 
 
 
