@@ -1,13 +1,21 @@
 package com.example.emflashcard;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView q1;
     Button bt1;
     LinearLayout l1;
+    String editTxtQ;
+    String reponsv;
+    String reponsf1;
+    String reponsf2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,20 +40,7 @@ public class MainActivity extends AppCompatActivity {
         r2 = findViewById(R.id.repons_2);
         r3 = findViewById(R.id.repons_3);
         q1 = findViewById(R.id.question_1);
-        bt1 = findViewById(R.id.but1);
         l1 = findViewById(R.id.l1);
-
-        bt1.setOnClickListener(v -> {
-            if(l1.getVisibility() == View.VISIBLE){
-                l1.setVisibility(View.INVISIBLE);
-            }
-            else   {
-                l1.setVisibility(View.VISIBLE);
-            }
-        });
-
-
-
     }
 
     public void repons_true(View view) {
@@ -49,21 +48,52 @@ public class MainActivity extends AppCompatActivity {
         String message = r1.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
-//        l1.setVisibility(View.GONE);
-//        bt1.setVisibility(View.GONE);
-//        q1.setText(R.string.repons1);
     }
 
     public void Repons_f(View view) {
         r2.setVisibility(View.INVISIBLE);
-        bt1.setVisibility(View.INVISIBLE);
 
 
     }
 
     public void repons_f2(View view) {
         r3.setVisibility(View.INVISIBLE);
-        bt1.setVisibility(View.INVISIBLE);
     }
+
+    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+
+                if (result.getResultCode() == Activity.RESULT_OK){
+                    Intent data = result.getData();
+                    assert data != null;
+                    editTxtQ = data.getExtras().getString("qestion");
+                    reponsv = data.getExtras().getString("reponsv");
+                    reponsf1 = data.getStringExtra("reponsf1");
+                    reponsf2= data.getStringExtra("reponsf2");
+
+                    q1.setText(editTxtQ);
+                    r1.setText(reponsv);
+                    r2.setText(reponsf1);
+                    r3.setText(reponsf2);
+                        Log.i("MainActivity", "string1: $string1");
+                        Log.i("MainActivity", "string2: $string2");
+
+                }
+
+
+
+    }});
+
+
+
+
+    public void NewQuestion(View view) {
+        Intent intent2 = new Intent(this, question.class);
+        resultLauncher.launch(intent2);
+    }
+
+
+
 }
 

@@ -42,8 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/card_view"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/repons_2"
@@ -82,16 +81,15 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/but1"
+
+    <ImageView
+        android:id="@+id/imgBtn"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@id/l1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/baseline_visibility_24"
-        android:backgroundTint="#a8dadc"
-        android:contentDescription="@string/repons1"
-        android:gravity="end|center" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/baseline_add_24"
+        android:onClick="NewQuestion"/>
+
 
 </RelativeLayout>
