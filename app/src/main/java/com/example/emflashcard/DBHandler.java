@@ -129,19 +129,38 @@ public class DBHandler extends SQLiteOpenHelper {
         return questionModalArrayList;
     }
 
-//    public List<QuestionModal> getAllQuestion(){
-//        List<QuestionModal> questionList = new ArrayList<>();
-//        SQLiteDatabase db = getReadableDatabase();
-//        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-//        if (c.moveToFirst()){
-//            do {
-//                QuestionModal question = new QuestionModal();
-//                question.setQuestion(c.getString(c.getColumnIndex(1)));
-//                question.setReponsv(c.getString(c.getColumnIndex(2)));
-//                question.setReponsf1(c.getString(c.getColumnIndex(3)));
-//                question.setReponsf2(c.getString(c.getColumnIndex(4)));
-//            }
-//        return questionList;
-//    }
+    // below is the method for updating our Qustion
+    public void updateCourse(String originalQuestion, String question, String reponsv, String reponsf1, String reponsf2) {
 
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
+        values.put(QUEST_COL, question);
+        values.put(REPONST_COL, reponsv);
+        values.put(REPONSF1_COL, reponsf1);
+        values.put(REPONSF2_COL, reponsf2);
+
+        // on below line we are calling a update method to update our database and passing our values.
+        // and we are comparing it with name of our course which is stored in original name variable.
+        db.update(TABLE_NAME, values, "name=?", new String[]{originalQuestion});
+        db.close();
     }
+    // below is the method for deleting our course.
+    public void deleteCourse(String questionName) {
+
+        // on below line we are creating
+        // a variable to write our database.
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are calling a method to delete our
+        // course and we are comparing it with our course name.
+        db.delete(TABLE_NAME, "name=?", new String[]{questionName});
+        db.close();
+    }
+
+
+
+}

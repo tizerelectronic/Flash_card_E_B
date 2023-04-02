@@ -98,6 +98,29 @@
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/baseline_navigate_next_24" />
+    <ImageView
+        android:id="@+id/imgPriv"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/baseline_navigate_before_24" />
+    <ImageView
+        android:id="@+id/imgDel"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/baseline_delete_forever_24" />
+    <ImageView
+        android:id="@+id/imgUpdate"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/baseline_update_24" />
 
 
 </RelativeLayout>
