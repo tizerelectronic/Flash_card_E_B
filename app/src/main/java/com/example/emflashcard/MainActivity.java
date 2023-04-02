@@ -20,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     String reponsf2;
     ImageView nextBtn;
     DBHandler dbHandler;
+    private int questionCounter=0;
+    private int questionTotal;
+    private QuestionModal currentQuestion;
+
+    int i;
     private ArrayList<QuestionModal> questionModalArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +55,19 @@ public class MainActivity extends AppCompatActivity {
         l1 = findViewById(R.id.l1);
         nextBtn = (ImageView) findViewById(R.id.imgNext);
         dbHandler = new DBHandler(MainActivity.this);
-        questionModalArrayList = new ArrayList<>();
-        questionModalArrayList = dbHandler.readQuestion() ;
+        questionModalArrayList = dbHandler.readQuestion();
+        questionTotal = questionModalArrayList.size();
+
+
+
 
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (QuestionModal questionModal : questionModalArrayList){
-
+                showNextQuestion();
                 }
-            }
-        });
-
+            });
     }
 
     public void repons_true(View view) {
@@ -114,5 +120,27 @@ public class MainActivity extends AppCompatActivity {
         Intent intent2 = new Intent(this, question.class);
         resultLauncher.launch(intent2);
     }
+
+    private void showNextQuestion(){
+        if (questionCounter < questionTotal){
+            currentQuestion = questionModalArrayList.get(questionCounter);
+            q1.setText(currentQuestion.getQuestion());
+            r1.setText(currentQuestion.getReponsv());
+            r2.setText(currentQuestion.getReponsf1());
+            r3.setText(currentQuestion.getReponsf2());
+            questionCounter++;
+        }
+    }
+    private void showPriviousQuestion(){
+        if (questionCounter >0 ) {
+            currentQuestion = questionModalArrayList.get(questionCounter);
+            q1.setText(currentQuestion.getQuestion());
+            r1.setText(currentQuestion.getReponsv());
+            r2.setText(currentQuestion.getReponsf1());
+            r3.setText(currentQuestion.getReponsf2());
+            questionCounter--;
+        }
+    }
+
 }
 

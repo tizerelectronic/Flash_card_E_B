@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -127,5 +128,20 @@ public class DBHandler extends SQLiteOpenHelper {
         cursorQuestion.close();
         return questionModalArrayList;
     }
+
+//    public List<QuestionModal> getAllQuestion(){
+//        List<QuestionModal> questionList = new ArrayList<>();
+//        SQLiteDatabase db = getReadableDatabase();
+//        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//        if (c.moveToFirst()){
+//            do {
+//                QuestionModal question = new QuestionModal();
+//                question.setQuestion(c.getString(c.getColumnIndex(1)));
+//                question.setReponsv(c.getString(c.getColumnIndex(2)));
+//                question.setReponsf1(c.getString(c.getColumnIndex(3)));
+//                question.setReponsf2(c.getString(c.getColumnIndex(4)));
+//            }
+//        return questionList;
+//    }
 
     }
