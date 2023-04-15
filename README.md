@@ -18,7 +18,7 @@
 - [x] Add selectable multiple choice answers beneath the card
 
 
-Lab 2 : Flashcard App
+# Lab 2 : Flashcard App
 
 <img src="lab2.gif" width=200><br>
 
@@ -36,7 +36,7 @@ Optional
 - [] App is further styled and customized!
 
 
-Lab 3 : Flashcard App
+# Lab 3 : Flashcard App
 
 <img src="lab3.gif" width=200><br>
 
