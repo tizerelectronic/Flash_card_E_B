@@ -2,7 +2,6 @@ package com.example.emflashcard;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,13 +19,13 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
             "com.example.android.emflashcard.extra.MESSAGE";
     Button r1;
     int i;
+    String ia;
     Button r2;
     Button r3;
     TextView q1;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView nextBtn;
     ImageView privBtn;
     DBHandler dbHandler;
-    private int questionCounter=0;
+    private int questionCounter;
     private int questionTotal;
     private QuestionModal currentQuestion;
     private ArrayList<QuestionModal> questionModalArrayList;
@@ -55,10 +54,12 @@ public class MainActivity extends AppCompatActivity {
         l1 = findViewById(R.id.l1);
         nextBtn = (ImageView) findViewById(R.id.imgNext);
         privBtn = (ImageView) findViewById(R.id.imgPriv);
+        ImageView delImg = (ImageView) findViewById(R.id.imgDel);
         dbHandler = new DBHandler(MainActivity.this);
         questionModalArrayList = dbHandler.readQuestion();
         questionTotal = questionModalArrayList.size();
-        showNextQuestion();
+        currentQuestion = questionModalArrayList.get(questionCounter);
+        displayQuestion(nextQuestion());
 
 
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                questionCounter++;
                 showNextQuestion();
+                displayQuestion(currentQuestion);
                 }
             });
         privBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,13 +80,24 @@ public class MainActivity extends AppCompatActivity {
                 showPriviousQuestion();
             }
         });
+        delImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dbHandler.deleteCourse(nextQuestion().getReponsv());
+                Toast.makeText(MainActivity.this, " "+nextQuestion().getQuestion()+"\n DELETE ", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
     }
 
     public void repons_true(View view) {
-        Intent intent = new Intent(this, reponse.class);
-        String message = r1.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+//        Intent intent = new Intent(this, reponse.class);
+//        String message = r1.getText().toString();
+//        intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
         Toast.makeText(MainActivity.this, "Bonne reponse", Toast.LENGTH_SHORT).show();
     }
 
@@ -132,13 +145,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNextQuestion(){
-        if (questionCounter < questionTotal){
+
+        if (questionCounter < (questionTotal-1)){
+            questionCounter++;
             currentQuestion = questionModalArrayList.get(questionCounter);
             q1.setText(currentQuestion.getQuestion());
             r1.setText(currentQuestion.getReponsv());
             r2.setText(currentQuestion.getReponsf1());
             r3.setText(currentQuestion.getReponsf2());
-            questionCounter++;
+
+
         }else {
             Toast.makeText(this, "No more question", Toast.LENGTH_SHORT).show();}
 
@@ -147,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         if (questionCounter > 0 ) {
             questionCounter--;
             currentQuestion = questionModalArrayList.get(questionCounter);
-            q1.setText(currentQuestion.getQuestion());
+            q1.setText(questionTotal+" - "+currentQuestion.getQuestion());
             r1.setText(currentQuestion.getReponsv());
             r2.setText(currentQuestion.getReponsf1());
             r3.setText(currentQuestion.getReponsf2());
@@ -155,6 +171,25 @@ public class MainActivity extends AppCompatActivity {
         }else {
         Toast.makeText(this, "No privious question", Toast.LENGTH_SHORT).show();}
     }
+    public void displayQuestion( final QuestionModal question){
+        q1.setText(question.getQuestion());
+        r1.setText(question.getReponsv());
+        r2.setText(question.getReponsf1());
+        r3.setText(question.getReponsf2());
+    }
+    public QuestionModal nextQuestion(){
+        int i = questionCounter;
+        QuestionModal currentQuestion1 = questionModalArrayList.get(i);
+        return currentQuestion1;
+    }
 
+    public void btnUpdate(View view) {
+        Intent i = new Intent(MainActivity.this,updateQuestion.class);
+        i.putExtra("question", q1.getText().toString());
+        i.putExtra("reponsv", r1.getText().toString());
+        i.putExtra("reponsf1", r2.getText().toString());
+        i.putExtra("reponsf2", r3.getText().toString());
+        startActivity(i);
+    }
 }
 

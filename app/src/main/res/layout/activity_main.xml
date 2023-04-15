@@ -30,7 +30,6 @@
             android:background="#a8dadc"
             android:gravity="center"
             android:padding="50dp"
-            android:text="@string/question1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -54,7 +53,6 @@
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/button_c"
             android:onClick="Repons_f"
-            android:text="@string/repons2"
             app:cornerRadius="20dp" />
 
         <Button
@@ -66,7 +64,6 @@
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/button_c"
             android:onClick="repons_true"
-            android:text="@string/repons1"
             app:cornerRadius="20dp" />
 
         <Button
@@ -77,7 +74,6 @@
             android:layout_marginRight="60dp"
             android:backgroundTint="@color/button_c"
             android:onClick="repons_f2"
-            android:text="@string/repons3"
             app:cornerRadius="20dp" />
 
     </LinearLayout>
@@ -85,8 +81,8 @@
 
     <ImageView
         android:id="@+id/imgBtn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         app:srcCompat="@drawable/baseline_add_24"
@@ -108,20 +104,22 @@
         app:srcCompat="@drawable/baseline_navigate_before_24" />
     <ImageView
         android:id="@+id/imgDel"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/baseline_delete_forever_24" />
+
     <ImageView
         android:id="@+id/imgUpdate"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        app:srcCompat="@drawable/baseline_update_24" />
+        app:srcCompat="@drawable/baseline_update_24"
+        android:onClick="btnUpdate"/>
 
 
 </RelativeLayout>

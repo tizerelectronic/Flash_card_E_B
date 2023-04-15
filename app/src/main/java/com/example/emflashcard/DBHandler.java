@@ -130,7 +130,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // below is the method for updating our Qustion
-    public void updateCourse(String originalQuestion, String question, String reponsv, String reponsf1, String reponsf2) {
+    public void updateQuestion(String originalQuestion, String question, String reponsv, String reponsf1, String reponsf2) {
 
         // calling a method to get writable database.
         SQLiteDatabase db = this.getWritableDatabase();
@@ -145,11 +145,11 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are calling a update method to update our database and passing our values.
         // and we are comparing it with name of our course which is stored in original name variable.
-        db.update(TABLE_NAME, values, "name=?", new String[]{originalQuestion});
+        db.update(TABLE_NAME, values, "question=?", new String[]{originalQuestion});
         db.close();
     }
     // below is the method for deleting our course.
-    public void deleteCourse(String questionName) {
+    public void deleteCourse(String responst) {
 
         // on below line we are creating
         // a variable to write our database.
@@ -157,7 +157,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are calling a method to delete our
         // course and we are comparing it with our course name.
-        db.delete(TABLE_NAME, "name=?", new String[]{questionName});
+        db.delete(TABLE_NAME, "reponsT=?", new String[]{responst});
         db.close();
     }
 
