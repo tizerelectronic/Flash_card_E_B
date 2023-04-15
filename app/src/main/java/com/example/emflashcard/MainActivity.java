@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         l1 = findViewById(R.id.l1);
         nextBtn = (ImageView) findViewById(R.id.imgNext);
         privBtn = (ImageView) findViewById(R.id.imgPriv);
-        ImageView delImg = (ImageView) findViewById(R.id.imgDel);
         dbHandler = new DBHandler(MainActivity.this);
         questionModalArrayList = dbHandler.readQuestion();
         questionTotal = questionModalArrayList.size();
@@ -78,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                questionCounter--;
                 showPriviousQuestion();
-            }
-        });
-        delImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
@@ -159,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         if (questionCounter > 0 ) {
             questionCounter--;
             currentQuestion = questionModalArrayList.get(questionCounter);
-            q1.setText(questionTotal+" - "+currentQuestion.getQuestion());
+            q1.setText(currentQuestion.getQuestion());
             r1.setText(currentQuestion.getReponsv());
             r2.setText(currentQuestion.getReponsf1());
             r3.setText(currentQuestion.getReponsf2());

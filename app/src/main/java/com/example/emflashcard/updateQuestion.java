@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class updateQuestion extends AppCompatActivity {
     private EditText mEditQuestion,mEditReponsV, mEditReponsf1, mEditReponsf2;
-    private Button mBtnUpdate, mBtnDelete;
+    private ImageView mBtnUpdate, mBtnDelete;
     private DBHandler dbHandler;
     String question, reponsv, reponsf1, reponsf2;
 
@@ -59,4 +60,7 @@ public class updateQuestion extends AppCompatActivity {
 
     }
 
+    public void btnclose(View view) {
+        finish();
+    }
 }

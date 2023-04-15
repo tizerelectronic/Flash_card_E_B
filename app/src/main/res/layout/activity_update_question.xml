@@ -1,56 +1,94 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".updateQuestion">
+    android:background="#f1faee"
+    tools:context=".updateQuestion"
+    android:layout_marginTop="20dp">
 
 
     <EditText
         android:id="@+id/idEdtQuestionName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Question" />
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:background="@color/teal_700"
+        android:hint="Ecrire la question"
+        android:inputType="text"
+        android:textColor="#000000" />
 
 
     <EditText
         android:id="@+id/idEdtRepons2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Repons 2" />
+        android:layout_below="@id/editTextQ"
+        android:layout_margin="20dp"
+        android:background="@color/teal_700"
+        android:hint="Ecrire faux repons"
+        android:inputType="text"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/idEdtReponsV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter ReponsV" />
+        android:layout_below="@id/editTextR"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/teal_700"
+        android:hint="la vrai repons"
+        android:inputType="text"
+        android:textColor="#000000" />
 
 
     <EditText
         android:id="@+id/idEdtRepons3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter repons 3" />
+        android:layout_below="@id/editTextR2"
+        android:layout_margin="20dp"
+        android:background="@color/teal_700"
+        android:hint="Ecrire faux repons"
+        android:textColor="#000000"
+        android:inputType="text" />
 
-    <Button
-        android:id="@+id/idBtnUpdateQuestion"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Update Question"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/idBtnDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Delete Question"
-        android:textAllCaps="false" />
+        <ImageView
+            android:id="@+id/idBtnUpdateQuestion"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            app:srcCompat="@drawable/baseline_download_24" />
+
+        <ImageView
+            android:id="@+id/idBtnDelete"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_delete_forever_24" />
+
+        <ImageView
+            android:id="@+id/btnclose"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:srcCompat="@drawable/baseline_close_24"
+            android:onClick="btnclose"/>
+    </RelativeLayout>
 
 </LinearLayout>
