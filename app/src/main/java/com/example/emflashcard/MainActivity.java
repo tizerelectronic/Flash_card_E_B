@@ -84,10 +84,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                dbHandler.deleteCourse(nextQuestion().getReponsv());
-                Toast.makeText(MainActivity.this, " "+nextQuestion().getQuestion()+"\n DELETE ", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 

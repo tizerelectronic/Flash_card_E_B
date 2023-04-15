@@ -47,6 +47,15 @@ public class updateQuestion extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        mBtnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHandler.deleteQuestion(question);
+                Toast.makeText(updateQuestion.this, "Deleted the Question", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(updateQuestion.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 

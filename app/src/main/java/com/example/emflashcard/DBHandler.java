@@ -149,7 +149,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
     // below is the method for deleting our course.
-    public void deleteCourse(String responst) {
+    public void deleteQuestion(String question) {
 
         // on below line we are creating
         // a variable to write our database.
@@ -157,7 +157,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are calling a method to delete our
         // course and we are comparing it with our course name.
-        db.delete(TABLE_NAME, "reponsT=?", new String[]{responst});
+        db.delete(TABLE_NAME, "question=?", new String[]{question});
         db.close();
     }
 
