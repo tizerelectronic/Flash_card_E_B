@@ -1,6 +1,6 @@
 # Flash_card_E_B
 
-# It is an application that asks a question and by clicking on the correct answer, it displays it in another page
+# It a Flashcard question , you can add question , edit question and, delete question
 
 # 
 <img src="https://i.imgur.com/p2sBhEJ.gif" width=200><br>
@@ -38,7 +38,7 @@ Optional
 
 Lab 3 : Flashcard App
 
-<img src="" width=200><br>
+<img src="lab3.gif" width=200><br>
 
 
 
